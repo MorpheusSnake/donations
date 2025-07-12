@@ -4,17 +4,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Support MorpheusSnake – Donate</title>
+  <title>Donate Crypto</title>
   <style>
-    body { font-family: sans-serif; padding: 2rem; background: #f9f9f9; }
-    .lang-switch { float: right; }
-    h1 { font-size: 1.5rem; }
-    .wallet { border: 1px solid #ccc; padding: 1rem; margin: 1rem 0; border-radius: 8px; background: #fff; }
-    img.qr { width: 150px; height: 150px; }
-    button.copy { margin-top: 0.5rem; padding: 0.3rem 0.6rem; font-size: 0.9rem; cursor: pointer; }
+    body { background: #111; color: #f0f0f0; font-family: sans-serif; padding: 2rem; }
+    h1 { text-align: center; }
+    .lang-switch { text-align: center; margin-bottom: 2rem; }
+    .wallets { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+    .wallet {
+      background: #222;
+      padding: 1rem;
+      border-radius: 10px;
+      width: 200px;
+      text-align: center;
+    }
+    .wallet img { width: 150px; height: 150px; }
+    .wallet code { word-break: break-all; display: block; margin: 0.5rem 0; }
+    button {
+      background: #03dac6;
+      color: black;
+      border: none;
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
   </style>
   <script>
-    function copyToClipboard(id) {
+    function copyText(id) {
       const el = document.getElementById(id);
       navigator.clipboard.writeText(el.textContent).then(() => alert('Copied: ' + el.textContent));
     }
@@ -27,37 +42,75 @@
 </head>
 <body onload="switchLang('en')">
   <div class="lang-switch">
-    <button onclick="switchLang('de')">🇩🇪 Deutsch</button>
     <button onclick="switchLang('en')">🇬🇧 English</button>
+    <button onclick="switchLang('de')">🇩🇪 Deutsch</button>
   </div>
-  <h1 data-lang="en">💸 Support Me with Crypto</h1>
-  <h1 data-lang="de">💸 Unterstütze mich mit Kryptowährungen</h1>
+  <h1 data-lang="en">💸 Support this project with cryptocurrency</h1>
+  <h1 data-lang="de">💸 Unterstütze dieses Projekt mit Kryptowährungen</h1>
+  <div class="wallets">
 
-  <div class="wallet" data-lang="en">
-    <b>Bitcoin (BTC)</b><br />
-    <img class="qr" src="Bitcoin.png" alt="BTC QR"><br />
-    <code id="btc">bc1q3m73hzzdke8y4dndgxrzrf2fma3rqdlq6n6va0</code><br />
-    <button class="copy" onclick="copyToClipboard('btc')">📋 Copy</button>
-  </div>
-  <div class="wallet" data-lang="de">
-    <b>Bitcoin (BTC)</b><br />
-    <img class="qr" src="Bitcoin.png" alt="BTC QR"><br />
-    <code id="btc">bc1q3m73hzzdke8y4dndgxrzrf2fma3rqdlq6n6va0</code><br />
-    <button class="copy" onclick="copyToClipboard('btc')">📋 Kopieren</button>
-  </div>
-
-  <div class="wallet" data-lang="en">
-    <b>Ethereum (ETH)</b><br />
-    <img class="qr" src="Ethereum.png" alt="ETH QR"><br />
-    <code id="eth">0xF0772Cd2b4F3f2CC8a31aFcd50F24Cb6Cb0c9A8f</code><br />
-    <button class="copy" onclick="copyToClipboard('eth')">📋 Copy</button>
-  </div>
-  <div class="wallet" data-lang="de">
-    <b>Ethereum (ETH)</b><br />
-    <img class="qr" src="Ethereum.png" alt="ETH QR"><br />
-    <code id="eth">0xF0772Cd2b4F3f2CC8a31aFcd50F24Cb6Cb0c9A8f</code><br />
-    <button class="copy" onclick="copyToClipboard('eth')">📋 Kopieren</button>
-  </div>
-
-</body>
-</html>
+    <div class="wallet" data-lang="en">
+      <h3>Bitcoin</h3>
+      <img src="Bitcoin.png" alt="Bitcoin QR">
+      <code id="bitcoin">bc1q3m73hzzdke8y4dndgxrzrf2fma3rqdlq6n6va0</code>
+      <button onclick="copyText('bitcoin')">📋 Copy</button>
+    </div>
+    <div class="wallet" data-lang="de">
+      <h3>Bitcoin</h3>
+      <img src="Bitcoin.png" alt="Bitcoin QR">
+      <code id="bitcoin">bc1q3m73hzzdke8y4dndgxrzrf2fma3rqdlq6n6va0</code>
+      <button onclick="copyText('bitcoin')">📋 Kopieren</button>
+    </div>
+    
+    <div class="wallet" data-lang="en">
+      <h3>Ethereum</h3>
+      <img src="Ethereum.png" alt="Ethereum QR">
+      <code id="ethereum">0xF0772Cd2b4F3f2CC8a31aFcd50F24Cb6Cb0c9A8f</code>
+      <button onclick="copyText('ethereum')">📋 Copy</button>
+    </div>
+    <div class="wallet" data-lang="de">
+      <h3>Ethereum</h3>
+      <img src="Ethereum.png" alt="Ethereum QR">
+      <code id="ethereum">0xF0772Cd2b4F3f2CC8a31aFcd50F24Cb6Cb0c9A8f</code>
+      <button onclick="copyText('ethereum')">📋 Kopieren</button>
+    </div>
+    
+    <div class="wallet" data-lang="en">
+      <h3>Litecoin</h3>
+      <img src="Litecoin.png" alt="Litecoin QR">
+      <code id="litecoin">LRQX9wBKV2aBshkmsPwvLa3sfjnf5N9BEz</code>
+      <button onclick="copyText('litecoin')">📋 Copy</button>
+    </div>
+    <div class="wallet" data-lang="de">
+      <h3>Litecoin</h3>
+      <img src="Litecoin.png" alt="Litecoin QR">
+      <code id="litecoin">LRQX9wBKV2aBshkmsPwvLa3sfjnf5N9BEz</code>
+      <button onclick="copyText('litecoin')">📋 Kopieren</button>
+    </div>
+    
+    <div class="wallet" data-lang="en">
+      <h3>Dash</h3>
+      <img src="Dash.png" alt="Dash QR">
+      <code id="dash">XdzMNPWWwpjvp5yXnsH5W7NcPTxVDPqM2h</code>
+      <button onclick="copyText('dash')">📋 Copy</button>
+    </div>
+    <div class="wallet" data-lang="de">
+      <h3>Dash</h3>
+      <img src="Dash.png" alt="Dash QR">
+      <code id="dash">XdzMNPWWwpjvp5yXnsH5W7NcPTxVDPqM2h</code>
+      <button onclick="copyText('dash')">📋 Kopieren</button>
+    </div>
+    
+    <div class="wallet" data-lang="en">
+      <h3>BitcoinCash</h3>
+      <img src="BitcoinCash.png" alt="BitcoinCash QR">
+      <code id="bitcoincash">qr3s65zrl2qafykwc8rly4t4mvf0a84kd5fymzcqs4</code>
+      <button onclick="copyText('bitcoincash')">📋 Copy</button>
+    </div>
+    <div class="wallet" data-lang="de">
+      <h3>BitcoinCash</h3>
+      <img src="BitcoinCash.png" alt="BitcoinCash QR">
+      <code id="bitcoincash">qr3s65zrl2qafykwc8rly4t4mvf0a84kd5fymzcqs4</code>
+      <button onclick="copyText('bitcoincash')">📋 Kopieren</button>
+    </div>
+    </div></body></html>
