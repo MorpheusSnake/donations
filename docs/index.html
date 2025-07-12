@@ -1,50 +1,63 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Donate</title>
-    <style>
-        body { font-family: sans-serif; max-width: 600px; margin: auto; }
-        .coin { margin-bottom: 2em; }
-        img { height: 150px; }
-        input { width: 100%; font-size: 0.9em; padding: 5px; }
-        button { margin-top: 5px; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Support MorpheusSnake – Donate</title>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; background: #f9f9f9; }
+    .lang-switch { float: right; }
+    h1 { font-size: 1.5rem; }
+    .wallet { border: 1px solid #ccc; padding: 1rem; margin: 1rem 0; border-radius: 8px; background: #fff; }
+    img.qr { width: 150px; height: 150px; }
+    button.copy { margin-top: 0.5rem; padding: 0.3rem 0.6rem; font-size: 0.9rem; cursor: pointer; }
+  </style>
+  <script>
+    function copyToClipboard(id) {
+      const el = document.getElementById(id);
+      navigator.clipboard.writeText(el.textContent).then(() => alert('Copied: ' + el.textContent));
+    }
+    function switchLang(lang) {
+      document.querySelectorAll('[data-lang]').forEach(el => {
+        el.style.display = el.dataset.lang === lang ? 'block' : 'none';
+      });
+    }
+  </script>
 </head>
-<body>
-    <h1>Donate via Cryptocurrency 💸</h1>
-    <p>Thank you for your support!</p>
+<body onload="switchLang('en')">
+  <div class="lang-switch">
+    <button onclick="switchLang('de')">🇩🇪 Deutsch</button>
+    <button onclick="switchLang('en')">🇬🇧 English</button>
+  </div>
+  <h1 data-lang="en">💸 Support Me with Crypto</h1>
+  <h1 data-lang="de">💸 Unterstütze mich mit Kryptowährungen</h1>
 
-    <div class="coin">
-<h2>TurtleCoin</h2>
-<img src="qr/TurtleCoin.png" alt="TurtleCoin QR Code">
-<input id="TurtleCoin" value="trtl1q8ze8fh4rx6gfh3mk85qtdklx4xzw2qd0axq8qpphqzq0s6fck3scnpzm05p4v7p2vmwv3pt0v0cw8d06s7s6hf7kkdcqs24mj4kyft6" readonly>
-<button onclick="navigator.clipboard.writeText(document.getElementById('TurtleCoin').value)">📋 Copy</button>
-</div><div class="coin">
-<h2>Bitcoin</h2>
-<img src="qr/Bitcoin.png" alt="Bitcoin QR Code">
-<input id="Bitcoin" value="bc1q3m73hzzdke8y4dndgxrzrf2fma3rqdlq6n6va0" readonly>
-<button onclick="navigator.clipboard.writeText(document.getElementById('Bitcoin').value)">📋 Copy</button>
-</div><div class="coin">
-<h2>Ethereum</h2>
-<img src="qr/Ethereum.png" alt="Ethereum QR Code">
-<input id="Ethereum" value="0xF0772Cd2b4F3f2CC8a31aFcd50F24Cb6Cb0c9A8f" readonly>
-<button onclick="navigator.clipboard.writeText(document.getElementById('Ethereum').value)">📋 Copy</button>
-</div><div class="coin">
-<h2>Litecoin</h2>
-<img src="qr/Litecoin.png" alt="Litecoin QR Code">
-<input id="Litecoin" value="LRQX9wBKV2aBshkmsPwvLa3sfjnf5N9BEz" readonly>
-<button onclick="navigator.clipboard.writeText(document.getElementById('Litecoin').value)">📋 Copy</button>
-</div><div class="coin">
-<h2>Dash</h2>
-<img src="qr/Dash.png" alt="Dash QR Code">
-<input id="Dash" value="XdzMNPWWwpjvp5yXnsH5W7NcPTxVDPqM2h" readonly>
-<button onclick="navigator.clipboard.writeText(document.getElementById('Dash').value)">📋 Copy</button>
-</div><div class="coin">
-<h2>BitcoinCash</h2>
-<img src="qr/BitcoinCash.png" alt="BitcoinCash QR Code">
-<input id="BitcoinCash" value="qr3s65zrl2qafykwc8rly4t4mvf0a84kd5fymzcqs4" readonly>
-<button onclick="navigator.clipboard.writeText(document.getElementById('BitcoinCash').value)">📋 Copy</button>
-</div>
+  <div class="wallet" data-lang="en">
+    <b>Bitcoin (BTC)</b><br />
+    <img class="qr" src="Bitcoin.png" alt="BTC QR"><br />
+    <code id="btc">bc1q3m73hzzdke8y4dndgxrzrf2fma3rqdlq6n6va0</code><br />
+    <button class="copy" onclick="copyToClipboard('btc')">📋 Copy</button>
+  </div>
+  <div class="wallet" data-lang="de">
+    <b>Bitcoin (BTC)</b><br />
+    <img class="qr" src="Bitcoin.png" alt="BTC QR"><br />
+    <code id="btc">bc1q3m73hzzdke8y4dndgxrzrf2fma3rqdlq6n6va0</code><br />
+    <button class="copy" onclick="copyToClipboard('btc')">📋 Kopieren</button>
+  </div>
+
+  <div class="wallet" data-lang="en">
+    <b>Ethereum (ETH)</b><br />
+    <img class="qr" src="Ethereum.png" alt="ETH QR"><br />
+    <code id="eth">0xF0772Cd2b4F3f2CC8a31aFcd50F24Cb6Cb0c9A8f</code><br />
+    <button class="copy" onclick="copyToClipboard('eth')">📋 Copy</button>
+  </div>
+  <div class="wallet" data-lang="de">
+    <b>Ethereum (ETH)</b><br />
+    <img class="qr" src="Ethereum.png" alt="ETH QR"><br />
+    <code id="eth">0xF0772Cd2b4F3f2CC8a31aFcd50F24Cb6Cb0c9A8f</code><br />
+    <button class="copy" onclick="copyToClipboard('eth')">📋 Kopieren</button>
+  </div>
+
 </body>
 </html>
